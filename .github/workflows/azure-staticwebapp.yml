@@ -3,8 +3,8 @@ name: Deploy Angular App to Azure
 on:
   push:
     branches:
-      - main  # deploy on push to main branch
-  workflow_dispatch:  # allows manual trigger
+      - main
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
@@ -24,19 +24,19 @@ jobs:
       # 3. Install dependencies
       - name: Install npm packages
         run: |
-          cd Cafe_Frontend/Cafe-app
+          cd Cafe-app
           npm install
 
       # 4. Build Angular app
       - name: Build Angular production
         run: |
-          cd Cafe_Frontend/Cafe-app
+          cd Cafe-app
           npm run build -- --configuration production
 
       # 5. Deploy to Azure Web App
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
         with:
-          app-name: CafeProj      # Your Azure Web App name
+          app-name: CafeProj
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          package: ./Cafe_Frontend/Cafe-app/dist/cafe-app   # Path to build folder
+          package: ./Cafe-app/dist/cafe-app
