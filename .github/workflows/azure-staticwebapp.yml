@@ -24,4 +24,4 @@ jobs:
           
           # --- Configuration for your app ---
           app_location: "Cafe-app"        # Correct: The folder containing your Angular app
-          output_location: "dist/cafe-app"  # Correct: The build output relative to app_location
+          output_location: "dist/cafe-app/browser"  # Correct: The build output relative to app_location
