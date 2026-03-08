@@ -29,7 +29,7 @@ export class CartService {
   
 
   getCartItems(userId: number): Observable<CartItem[]> {
-    const apiUrl = `https://localhost:44331/api/cartitem/${userId}`;
+    const apiUrl = `${environment.apiUrl}/api/cartitem/${userId}`;
     return this.http.get<CartItem[]>(apiUrl).pipe(
       catchError(this.handleError<CartItem[]>('getCartItems', []))
     );
