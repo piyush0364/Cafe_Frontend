@@ -55,7 +55,7 @@ export class PaymentService {
 
     
   createOrder(orderData: any): Observable<any> {
-    var url = '${environment.apiUrl}/api/Orders';
+    var url = `${environment.apiUrl}/api/Orders`;
 
     return this.http.post(url, orderData);
   }
